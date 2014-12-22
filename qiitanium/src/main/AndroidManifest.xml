@@ -27,9 +27,7 @@
         <activity android:name=".presentation.activity.TagActivity"
                   android:label="@string/app_name">
         </activity>
-
-        <meta-data android:name="com.crashlytics.ApiKey"
-                   android:value="aa425c5cd9a0e10f3c787a250b5be0f2f214b2a3"/>
+        <meta-data android:name="com.crashlytics.ApiKey" android:value="6ff789a66e4b07345fc31164a90c4a1e4c51321c"/>
 
     </application>
 

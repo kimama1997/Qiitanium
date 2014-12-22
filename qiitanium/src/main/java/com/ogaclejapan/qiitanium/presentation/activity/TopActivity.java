@@ -1,5 +1,15 @@
 package com.ogaclejapan.qiitanium.presentation.activity;
 
+import android.animation.Animator;
+import android.content.res.Configuration;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewAnimationUtils;
+
 import com.ogaclejapan.qiitanium.R;
 import com.ogaclejapan.qiitanium.presentation.fragment.ArticleListFragment;
 import com.ogaclejapan.qiitanium.presentation.fragment.ComingSoonFragment;
@@ -8,19 +18,7 @@ import com.ogaclejapan.qiitanium.presentation.fragment.TagListFragment;
 import com.ogaclejapan.qiitanium.presentation.helper.FragmentPager;
 import com.ogaclejapan.qiitanium.presentation.helper.MaterialMenuDrawerToggle;
 import com.ogaclejapan.qiitanium.presentation.view.DrawerMenuView;
-import com.ogaclejapan.qiitanium.util.ContextUtils;
 import com.ogaclejapan.qiitanium.util.ViewUtils;
-
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewAnimationUtils;
-import android.widget.ImageView;
-import android.widget.Toolbar;
 
 public class TopActivity extends AppActivity {
 
@@ -44,7 +42,7 @@ public class TopActivity extends AppActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top);
-        setActionBar(ViewUtils.<Toolbar>findById(this, R.id.toolbar));
+        setSupportActionBar(ViewUtils.<Toolbar>findById(this, R.id.toolbar));
 
         mDrawerToggle = MaterialMenuDrawerToggle.with(this);
 
@@ -66,14 +64,16 @@ public class TopActivity extends AppActivity {
         drawerMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                int[] pos = new int[2];
-                v.getLocationOnScreen(pos);
-                int cx = (v.getLeft() + v.getRight()) / 2 + pos[0];
-                int cy = (v.getTop() + v.getBottom()) / 2 + pos[1];
-                int finalRadius = Math.max(mainContainer.getWidth(), mainContainer.getHeight());
-                Animator anim = ViewAnimationUtils.createCircularReveal(mainContainer, cx, cy, 0,
-                        finalRadius);
-                anim.start();
+                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) {
+                    int[] pos = new int[2];
+                    v.getLocationOnScreen(pos);
+                    int cx = (v.getLeft() + v.getRight()) / 2 + pos[0];
+                    int cy = (v.getTop() + v.getBottom()) / 2 + pos[1];
+                    int finalRadius = Math.max(mainContainer.getWidth(), mainContainer.getHeight());
+                    Animator anim = ViewAnimationUtils.createCircularReveal(mainContainer, cx, cy, 0,
+                            finalRadius);
+                    anim.start();
+                }
             }
         });
     }

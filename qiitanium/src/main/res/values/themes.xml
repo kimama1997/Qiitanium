@@ -3,23 +3,23 @@
 
     <style name="AppTheme" parent="AppBaseTheme"/>
 
-    <style name="AppBaseTheme" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:colorPrimary">@color/primary</item>
-        <item name="android:colorPrimaryDark">@color/primary_dark</item>
-        <item name="android:colorAccent">@color/accent</item>
-        <item name="android:colorControlHighlight">@color/accent_light</item>
+    <style name="AppBaseTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorControlHighlight">@color/accent_light</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="AppToolbar">
-        <item name="android:background">?android:attr/colorPrimary</item>
+        <item name="android:background">?colorPrimary</item>
         <item name="android:elevation">@dimen/actionbar_elevation</item>
         <item name="android:transitionName">actionBar</item>
-        <item name="android:theme">@android:style/ThemeOverlay.Material.Dark.ActionBar</item>
-        <item name="android:popupTheme">@android:style/ThemeOverlay.Material.Light</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
     </style>
 
-    <style name="AppDialog" parent="android:Theme.Material.Light.Dialog">
+    <style name="AppDialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:colorBackground">@color/white</item>
         <item name="android:colorControlHighlight">@color/accent_light</item>
     </style>

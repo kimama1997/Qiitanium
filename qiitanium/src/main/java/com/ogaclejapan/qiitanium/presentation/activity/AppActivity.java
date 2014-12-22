@@ -7,13 +7,14 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 
 import rx.Subscription;
 import rx.subscriptions.SerialSubscription;
 import rx.subscriptions.Subscriptions;
 
-abstract class AppActivity extends Activity {
+abstract class AppActivity extends ActionBarActivity {
 
     private final SerialSubscription mSubscriptions = new SerialSubscription();
 

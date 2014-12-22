@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Qiitanium.iml" filepath="$PROJECT_DIR$/Qiitanium.iml" />
-      <module fileurl="file://$PROJECT_DIR$/qiitanium/qiitanium.iml" filepath="$PROJECT_DIR$/qiitanium/qiitanium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qiitanium/qiitanium-qiitanium.iml" filepath="$PROJECT_DIR$/qiitanium/qiitanium-qiitanium.iml" />
     </modules>
   </component>
 </project>

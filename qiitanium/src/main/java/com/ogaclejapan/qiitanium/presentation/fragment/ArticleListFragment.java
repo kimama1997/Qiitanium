@@ -1,5 +1,17 @@
 package com.ogaclejapan.qiitanium.presentation.fragment;
 
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
 import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
 import com.nhaarman.listviewanimations.appearance.simple.ScaleInAnimationAdapter;
 import com.ogaclejapan.qiitanium.R;
@@ -18,17 +30,6 @@ import com.ogaclejapan.qiitanium.util.ViewUtils;
 import com.ogaclejapan.rx.binding.Rx;
 import com.ogaclejapan.rx.binding.RxActions;
 import com.ogaclejapan.rx.binding.RxView;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import rx.Subscription;
 import rx.subscriptions.Subscriptions;
@@ -148,7 +149,10 @@ public class ArticleListFragment extends AppFragment
         final Intent intent = ArticleDetailActivity
                 .intentOf(getContext(), item.id(), item.authorName().get());
 
-        startActivity(intent, itemView.getActivityOptions(getActivity()).toBundle());
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            startActivity(intent, itemView.getActivityOptions(getActivity()).toBundle());
+        else 
+            startActivity(intent);
     }
 
 }
